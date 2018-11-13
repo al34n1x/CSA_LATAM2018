@@ -22,6 +22,12 @@ We won’t go through all the details on how to create or harden an AWS account.
 
 * Open the AWS console and in the services search bar type IAM
 * Once there, select "users" in the menu bar located at the right of the screen
+
+![Add User](./img/addUser.png)
+
+![User Setting](./img/programaticAccount.png)
+
+
 * Add a new user and check the "Programatic account" setting.
 * For this PoC purposes give S3 and Lambda full access. Once created keep the Access Key and Secret Key information, we will use those two items when configuring our pipelines in GitLab
 
