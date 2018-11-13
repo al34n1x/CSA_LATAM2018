@@ -1,5 +1,4 @@
 # Security as Code
-#Cybersecurity/github
 
 Hi, if you ended up here, sorry.. I really do.  As a geek and developer, I do not like to document things, nevertheless,  I think that this is a good opportunity to share the knowledge that I’ve acquired along the last years thanks to different specialist and resources that I’ve found on the internet.
 Keep in mind that the assets within this repository has been compiled and modified according to my needs. I’ll try to document everything, but won’t be that hard to understand what we are trying to accomplish.
@@ -21,22 +20,11 @@ We will need the following items to partially or fully complete the PoC
 ### Setting up AWS account
 We won’t go through all the details on how to create or harden an AWS account. You can find further information [Here](https://aws.amazon.com/es/iam/)
 
+* Open the AWS console and in the services search bar type IAM
+* Once there, select "users" in the menu bar located at the right of the screen
+* Add a new user and check the "Programatic account" setting.
+* For this PoC purposes give S3 and Lambda full access. Once created keep the Access Key and Secret Key information, we will use those two items when configuring our pipelines in GitLab
 
-```
-Open the AWS console and in the services search bar type IAM
-```
-
-```
-Once there, select "users" in the menu bar located at the right of the screen
-```
-
-```
-Add a new user and check the "Programactic account" setting.
-```
-
-```
-For this PoC purposes give S3 and Lambda full access. Once created keep the Access Key and Secret Key information, we will use those two items when configuring our pipelines in GitLab
-```
 
 And repeat
 
