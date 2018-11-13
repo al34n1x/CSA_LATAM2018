@@ -1,6 +1,6 @@
 # Security as Code
 
-Hi, if you ended up here, sorry.. I really do.  As a geek and developer, I do not like to document things, nevertheless,  I think that this is a good opportunity to share the knowledge that I’ve acquired along the last years thanks to different specialist and resources that I’ve found on the internet.
+Hi, if you ended up here, sorry.. I really do.  As a geek and developer, I do not like to document things, nevertheless,  I think that this is a good opportunity to share the knowledge that I’ve acquired along the last years thanks to different specialists and resources that I’ve found on the internet.
 Keep in mind that the assets within this repository has been compiled and modified according to my needs. I’ll try to document everything, but won’t be that hard to understand what we are trying to accomplish.
 Finally, the main goal is to provide a proof of concept, we are not seeking to replace the current incident and management response tools and strategy deployed at your organization, but complement what you already have.
 
