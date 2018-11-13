@@ -21,14 +21,16 @@ We will need the following items to partially or fully complete the PoC
 We won’t go through all the details on how to create or harden an AWS account. You can find further information [Here](https://aws.amazon.com/es/iam/)
 
 * Open the AWS console and in the services search bar type IAM
-* Once there, select "users" in the menu bar located at the right of the screen
+* Once there, select "users" in the menu bar located at the right of the screen and add a new user
 
 ![Add User](./img/addUser.png)
+
+
+* Add a new user and check the "Programatic account" box
 
 ![User Setting](./img/programaticAccount.png)
 
 
-* Add a new user and check the "Programatic account" setting.
 * For this PoC purposes give S3 and Lambda full access. Once created keep the Access Key and Secret Key information, we will use those two items when configuring our pipelines in GitLab
 
 
