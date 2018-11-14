@@ -26,7 +26,7 @@ We won’t go through all the details on how to create or harden an AWS account.
 ![Add User](./img/addUser.png)
 
 
-* Add a new user and check the "Programatic account" box
+* Add a new user and check the "Programmatic account" box
 
 ![User Setting](./img/programaticAccount.png)
 
