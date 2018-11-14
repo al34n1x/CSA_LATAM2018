@@ -43,13 +43,13 @@ Now that you have set up your AWS service account, lets configure your GitLab CI
 
 ![Setup Repo](./img/settingRepo.png)
 
-* Once you repository has been created, open it and navigate to Settings and select CI / CD option.
+* Once you repository has been created, open it and navigate to *Settings* and select *CI / CD* option.
 
 ![CICD](./img/settingCICD.png)
 
 * Scroll down to the *Variables* section and select *Expand*
-* As a brief introduction, GitLab use runners to allows to deploy our code. This allows us to invoke a docker instance, run some code and destroy it once the our project has been successfully deployed. You can either install a runner in your machine or use the share resources. For this lab purposes we will use GitLab/Google share resources.
-* The Variables that we will set in here will be send as parameters to our code in runtime. Why? because we don’t want to hardcode our credentials into our code, that’s simple. If you are familiar with Python, we will import the *os* library and invoke the `os.getenv`  function that will allows to manage these variables.
+* As a brief introduction, GitLab use runners that allow us to deploy our code. We are able to invoke a docker instance, run some code and destroy it once our project has been successfully deployed. You can either install a runner in your machine or use the share resources. For this lab purposes we will use GitLab/Google share resources. You can check this [LINK](https://docs.gitlab.com/ee/ci/) to further understand how pipelines works in GitLab.
+* The Variables that we will set in here will be send as parameters to our code in runtime. Why? because we don’t want to hardcode our credentials into our code, simple enough, righ?. If you are familiar with Python, we will import the *os* library and invoke the `os.getenv`  function that will allows to manage these variables.
 
 ![Variables](./img/variables.png)
 
