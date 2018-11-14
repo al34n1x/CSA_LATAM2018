@@ -63,3 +63,47 @@ Create the following items as shown in the above picture.
 * AWS_REGION (Your AWS region, go back to your AWS console and get your region, is located at the top right hand of your screen as welll)
 * AWS_SECRET_ACCESS_KEY ( The secret key copied on the AWS setting step)
 
+_Configuring your pipeline settings_
+
+Now is time to build your CI/CD integration. Clone your repository in your machine and create one file `.gitlab-ci.yml` . You should use this name convention, The pipeline won’t work otherwise.
+
+For this particular use case we will spin up an Elastic instance and enable GuardDuty. Boto3 allow you to manage almost every single AWS resource. For further reference, review [BOTO3 Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+
+We won’t build different stages (i.e. Dev, Test, Production), We will deploy our infrastructure straight in production … don’t tell anybody 
+
+You can use below code to create the yml file or download it from this repository.
+
+```
+image: docker:latest
+
+before_script:
+    - apk update # required to install zip
+    - apk add zip # required for packaging up the application
+    - apk add python
+    - apk add python-dev
+    - apk add py-pip
+    - pip install boto3==1.9.25
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+
+  only:
+    - master   # We will run the CD only when something is going to change in master branch.
+
+  script:
+    - python ./ec2.py #Deploy EC2 environment
+    - python ./GuardDuty.py #Enable GuardDuty
+  environment:
+    name: master
+```
+
+
+What we are doing here is creating a new docker instance, deploying python, it’s dependencies and BOTO3 as part of this image.
+Once the docker image is built, we call out the `ec2.py` script, which will create a new instance with detailed monitoring enable by default, and the `GuardDuty.py` script, which will enable GuardDuty. 
+Once the job has completed successfully, you should have a new EC2 instance deployed, GuardDuty enabled and for every single threat identified as positive, GD will send a notification to CloudWatch and depending on the rules that you have set, you can drop an email, or trigger a lambda function.
+
+
+
