@@ -1,13 +1,13 @@
 # Security as Code
 
-Hi, if you ended up here, sorry.. I really do.  As a geek and developer, I do not like to document things, nevertheless,  I think that this is a good opportunity to share the knowledge that I’ve acquired along the last years thanks to different specialists and resources that I’ve found on the internet.
-Keep in mind that the assets within this repository has been compiled and modified according to my needs. I’ll try to document everything, but won’t be that hard to understand what we are trying to accomplish.
+Hi, if you ended up here, sorry. I really do.  As a geek and developer, I do not like to document things, nevertheless,  I think that this is a good opportunity to share the knowledge that I’ve acquired along the last years' thanks to different specialists and resources that I’ve found on the internet.
+Keep in mind that the assets within this repository have been compiled and modified according to my needs. I’ll try to document everything, but won’t be that hard to understand what we are trying to accomplish.
 Finally, the main goal is to provide a proof of concept, we are not seeking to replace the current incident and management response tools and strategy deployed at your organization, but complement what you already have.
 
 
 ## Getting Started
-Machine Learning is a transformational technology that have been here for years, but now thanks to the computational capabilities is easier for companies and community develop intelligent agents such as chatbots, intelligent cars or recommendation algorithms such as the one that Amazon or Netflix use.
-For this particular proof of concept we will leverage AWS services  along with Gitlab CI/CD capabilities.
+Machine Learning is a transformational technology that has been here for years, but now thanks to the computational capabilities are easier for companies and community develop intelligent agents such as chatbots, intelligent cars or recommendation algorithms such as the one that Amazon or Netflix use.
+For this particular proof of concept, we will leverage AWS services and Gitlab CI/CD capabilities.
 
 ### Prerequisites
 We will need the following items to partially or fully complete the PoC
@@ -34,7 +34,7 @@ We won’t go through all the details on how to create or harden an AWS account.
 * For this PoC purposes give S3 and Lambda full access. Once created keep the Access Key and Secret Key information, we will use those two items when configuring our pipelines in GitLab.  Let’s move to Gitlab Configuration now.
 
 ## Setting up GitLab CI/CD
-Now that you have set up your AWS service account, lets configure your GitLab CI/CD environment that will allow you deploy your code straight into AWS.
+Now that you have set up your AWS service account, let's configure your GitLab CI/CD environment that will allow you to deploy your code straight into AWS.
 
 * Login to [GitLab](http://gitlab.com/)
 * Create a new project if you don’t have one already. The process is quite straightforward, just give it a name and define whether you want to keep it public or private.
@@ -48,8 +48,8 @@ Now that you have set up your AWS service account, lets configure your GitLab CI
 ![CICD](./img/settingCICD.png)
 
 * Scroll down to the *Variables* section and select *Expand*
-* As a brief introduction, GitLab use runners that allow us to deploy our code. We are able to invoke a docker instance, run some code and destroy it once our project has been successfully deployed. You can either install a runner in your machine or use the share resources. For this lab purposes we will use GitLab/Google share resources. You can check this [LINK](https://docs.gitlab.com/ee/ci/) to further understand how pipelines works in GitLab.
-* The Variables that we will set in here will be send as parameters to our code in runtime. Why? because we don’t want to hardcode our credentials into our code, simple enough, righ?. If you are familiar with Python, we will import the *os* library and invoke the `os.getenv`  function that will allows to manage these variables.
+* As a brief introduction, GitLab uses runners that allow us to deploy our code. We are able to invoke a docker instance, run some code and destroy it once our project has been successfully deployed. You can either install a runner in your machine or use the share resources. For this lab purposes, we will use GitLab/Google share resources. You can check this [LINK](https://docs.gitlab.com/ee/ci/) to further understand how pipelines works in GitLab.
+* The Variables that we will set in here will be sent as parameters to our code in runtime. Why? because we don’t want to hardcode our credentials into our code, simple enough, right?. If you are familiar with Python, we will import the *os* library and invoke the `os.getenv`  function that will allows to manage these variables.
 
 ![Variables](./img/variables.png)
 
