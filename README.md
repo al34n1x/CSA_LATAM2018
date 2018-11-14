@@ -31,61 +31,35 @@ We won’t go through all the details on how to create or harden an AWS account.
 ![User Setting](./img/programaticAccount.png)
 
 
-* For this PoC purposes give S3 and Lambda full access. Once created keep the Access Key and Secret Key information, we will use those two items when configuring our pipelines in GitLab
+* For this PoC purposes give S3 and Lambda full access. Once created keep the Access Key and Secret Key information, we will use those two items when configuring our pipelines in GitLab.  Let’s move to Gitlab Configuration now.
+
+## Setting up GitLab CI/CD
+Now that you have set up your AWS service account, lets configure your GitLab CI/CD environment that will allow you deploy your code straight into AWS.
+
+* Login to [GitLab](http://gitlab.com/)
+* Create a new project if you don’t have one already. The process is quite straightforward, just give it a name and define whether you want to keep it public or private.
+
+![Create_Repo](./img/createRepo.png)
+
+![Setup Repo](./img/settingRepo.png)
+
+* Once you repository has been created, open it and navigate to Settings and select CI / CD option.
+
+![CICD](./img/settingCICD.png)
+
+* Scroll down to the *Variables* section and select *Expand*
+* As a brief introduction, GitLab use runners to allows to deploy our code. This allows us to invoke a docker instance, run some code and destroy it once the our project has been successfully deployed. You can either install a runner in your machine or use the share resources. For this lab purposes we will use GitLab/Google share resources.
+* The Variables that we will set in here will be send as parameters to our code in runtime. Why? because we don’t want to hardcode our credentials into our code, that’s simple. If you are familiar with Python, we will import the *os* library and invoke the `os.getenv`  function that will allows to manage these variables.
+
+![Variables](./img/variables.png)
 
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Authors
-
-* *Billie Thompson* - /Initial work/ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+These are the list of variables that you must create. Remember the Access and Secret key information that you copied when setting up your AWS account? we will use it now.
+Create the following items as shown in the above picture.
+* APPLICATION_NAME  (Use to define the application name for EBS if needed, you need first to have an application and environment created)
+* AWS_ACCESS_KEY_ID (The access key id copied in the previous step)
+* AWS_ACCOUNT_ID (Your account id information, you can locate this number on the AWS console at the top right hand side of your screen, next to your user name)
+* AWS_EB_PLATFORM (EBS platform that where you will deploy your code i.e. PHP, node, Python, etc)
+* AWS_REGION (Your AWS region, go back to your AWS console and get your region, is located at the top right hand of your screen as welll)
+* AWS_SECRET_ACCESS_KEY ( The secret key copied on the AWS setting step)
 
