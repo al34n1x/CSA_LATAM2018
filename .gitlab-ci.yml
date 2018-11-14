@@ -1,0 +1,24 @@
+image: docker:latest
+
+before_script:
+    - apk update # required to install zip
+    - apk add zip # required for packaging up the application
+    - apk add python
+    - apk add python-dev
+    - apk add py-pip
+    - pip install boto3==1.9.25
+    
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  
+  only:
+    - master   # We will run the CD only when something is going to change in master branch.
+
+  script:
+    - python ./ec2.py #Deploy EC2 environment
+    - python ./GuardDuty.py #Enable GuardDuty
+  environment:
+    name: master

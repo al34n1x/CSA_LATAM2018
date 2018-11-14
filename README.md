@@ -103,6 +103,7 @@ deploy:
 
 What we are doing here is creating a new docker instance, deploying python, it’s dependencies and BOTO3 as part of this image.
 Once the docker image is built, we call out the `ec2.py` script, which will create a new instance with detailed monitoring enable by default, and the `GuardDuty.py` script, which will enable GuardDuty. 
+Before running the job, make sure that the image id stored in the `ec2.py` script is valid. You can search for the image id within AWS console.
 Once the job has completed successfully, you should have a new EC2 instance deployed, GuardDuty enabled and for every single threat identified as positive, GD will send a notification to CloudWatch and depending on the rules that you have set, you can drop an email, or trigger a lambda function.
 
 
